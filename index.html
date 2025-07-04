@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gráfica de Barras - Chart.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    canvas {
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Gráfica de Barras - Resultados de Pruebas</h2>
+  <canvas id="graficaBarras"></canvas>
+
+  <script>
+    const ctx = document.getElementById('graficaBarras').getContext('2d');
+    const grafica = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Prueba A', 'Prueba B', 'Prueba C', 'Prueba D', 'Prueba E'],
+        datasets: [{
+          label: 'Resultado (%)',
+          data: [85, 72, 90, 66, 78],
+          backgroundColor: [
+            '#4caf50',
+            '#2196f3',
+            '#ff9800',
+            '#f44336',
+            '#9c27b0'
+          ],
+          borderColor: '#333',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'top'
+          },
+          title: {
+            display: true,
+            text: 'Resultados de Pruebas'
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
